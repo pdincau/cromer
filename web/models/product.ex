@@ -3,7 +3,7 @@ defmodule Cromer.Product do
 
   schema "products" do
     field :title, :string
-    field :body, :string
+    field :body,  :string
     field :price, :integer
 
     timestamps
