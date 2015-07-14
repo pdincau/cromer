@@ -12,6 +12,11 @@
     <%= @product.body %>
   </li>
 
+  <li>
+    <strong>Price:</strong>
+    <%= @product.price %>
+  </li>
+
 </ul>
 
 <%= link "Back", to: product_path(@conn, :index) %>
