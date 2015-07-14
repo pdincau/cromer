@@ -16,3 +16,7 @@ Now you can visit `localhost:4000` from your browser.
 Interactive shell:
 
     $ iex -S mix phoenix.server
+
+Running tests:
+
+    $ mix test
