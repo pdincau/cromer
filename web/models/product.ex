@@ -4,11 +4,12 @@ defmodule Cromer.Product do
   schema "products" do
     field :title, :string
     field :body, :string
+    field :price, :integer
 
     timestamps
   end
 
-  @required_fields ~w(title body)
+  @required_fields ~w(title body price)
   @optional_fields ~w()
 
   @doc """
@@ -20,5 +21,6 @@ defmodule Cromer.Product do
   def changeset(model, params \\ :empty) do
     model
     |> cast(params, @required_fields, @optional_fields)
+    |> validate_number(:price, greater_than_or_equal_to: 0)
   end
 end

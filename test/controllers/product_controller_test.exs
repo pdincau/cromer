@@ -2,7 +2,7 @@ defmodule Cromer.ProductControllerTest do
   use Cromer.ConnCase
 
   alias Cromer.Product
-  @valid_attrs %{body: "some content", title: "some content"}
+  @valid_attrs %{body: "some content", title: "some content", price: 0}
   @invalid_attrs %{}
 
   setup do
