@@ -21,6 +21,11 @@
   </div>
 
   <div class="form-group">
+    <%= label f, :price, "Price" %>
+    <%= text_input f, :price, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>
