@@ -3,7 +3,7 @@ defmodule Cromer.MerchantTest do
 
   alias Cromer.Merchant
 
-  @valid_attrs %{username: "some content", password: "some content", password_confirmation: "some content"}
+  @valid_attrs %{username: "username", password: "12345678", password_confirmation: "12345678"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do
@@ -16,13 +16,15 @@ defmodule Cromer.MerchantTest do
     refute changeset.valid?
   end
 
-  test "password must have at least 8 characters" do
-    changeset = Merchant.changeset(%Merchant{}, Dict.put(@valid_attrs, :password, "1234567"))
+  test "when password has less then 8 characters" do
+    attributes = %{username: "username", password: "1234567", password_confirmation: "1234567"}
+    changeset = Merchant.changeset(%Merchant{}, attributes)
     refute changeset.valid?
   end
 
-  test "password must have at least 8 characters" do
-    changeset = Merchant.changeset(%Merchant{}, Dict.put(@valid_attrs, :password, "123495678"))
-    assert changeset.valid?
+  test "when password and password confirmation are different" do
+    attrs = %{username: "username", password: "12345678", password_confirmation: "12345677"}
+    changeset = Merchant.changeset(%Merchant{}, attrs)
+    refute changeset.valid?
   end
 end

@@ -24,7 +24,6 @@ defmodule Cromer.Merchant do
     |> cast(params, @required_fields, @optional_fields)
     |> validate_unique(:username, on: Cromer.Repo, downcase: true)
     |> validate_length(:password, min: 8)
-    |> validate_length(:password_confirmation, min: 8)
     |> validate_confirmation(:password)
   end
 
