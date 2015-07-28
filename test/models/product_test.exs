@@ -17,7 +17,8 @@ defmodule Cromer.ProductTest do
   end
 
   test "changeset with not valid price" do
-    changeset = Product.changeset(%Product{}, Dict.put(@valid_attrs, :price, -1))
+    attributes = %{@valid_attrs | price: -1}
+    changeset = Product.changeset(%Product{}, attributes)
     refute changeset.valid?
   end
 end

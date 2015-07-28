@@ -17,14 +17,14 @@ defmodule Cromer.MerchantTest do
   end
 
   test "when password has less then 8 characters" do
-    attributes = %{username: "username", password: "1234567", password_confirmation: "1234567"}
+    attributes = %{@valid_attrs | password: "1234567", password_confirmation: "1234567"}
     changeset = Merchant.changeset(%Merchant{}, attributes)
     refute changeset.valid?
   end
 
   test "when password and password confirmation are different" do
-    attrs = %{username: "username", password: "12345678", password_confirmation: "12345677"}
-    changeset = Merchant.changeset(%Merchant{}, attrs)
+    attributes = %{@valid_attrs | password_confirmation: "12345677"}
+    changeset = Merchant.changeset(%Merchant{}, attributes)
     refute changeset.valid?
   end
 end
