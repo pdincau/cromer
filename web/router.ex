@@ -17,8 +17,6 @@ defmodule Cromer.Router do
 
     get "/", PageController, :index
 
-    resources "/merchants", MerchantController
-
     resources "/products", ProductController
   end
 
